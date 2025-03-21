@@ -37,6 +37,12 @@
             margin-top: 10px;
             cursor: pointer;
         }
+
+        .game-iframe {
+            width: 100%;
+            height: 400px; /* Ajusta la altura según sea necesario */
+            border: none;
+        }
     </style>
 </head>
 <body>
@@ -47,41 +53,36 @@
     <div class="game-grid">
         <div class="game-item">
             <h2>Friday Night Funkin'</h2>
-            <button onclick="openGame('https://smagamers123.github.io/friday-night-funkin-psych-engine-movil/')">Jugar</button>
-            <button class="fullscreen-button" onclick="openFullscreen('https://smagamers123.github.io/friday-night-funkin-psych-engine-movil/')">Pantalla Completa</button>
+            <iframe class="game-iframe" src="https://smagamers123.github.io/friday-night-funkin-psych-engine-movil/"></iframe>
+            <button class="fullscreen-button" onclick="openFullscreen(this.previousElementSibling)">Pantalla Completa</button>
         </div>
         <div class="game-item">
             <h2>Cut the Rope</h2>
-            <button onclick="openGame('https://smagamers123.github.io/Cut-The-Rope/')">Jugar</button>
-            <button class="fullscreen-button" onclick="openFullscreen('https://smagamers123.github.io/Cut-The-Rope/')">Pantalla Completa</button>
+            <iframe class="game-iframe" src="https://smagamers123.github.io/Cut-The-Rope/"></iframe>
+            <button class="fullscreen-button" onclick="openFullscreen(this.previousElementSibling)">Pantalla Completa</button>
         </div>
         <div class="game-item">
             <h2>Sonic 3 A.I.R</h2>
-            <button onclick="openGame('https://projects.sappharad.com/s3air_ios/20240202_beta/sonic3air_web.html')">Jugar</button>
-            <button class="fullscreen-button" onclick="openFullscreen('https://projects.sappharad.com/s3air_ios/20240202_beta/sonic3air_web.html')">Pantalla Completa</button>
+            <iframe class="game-iframe" src="https://projects.sappharad.com/s3air_ios/20240202_beta/sonic3air_web.html"></iframe>
+            <button class="fullscreen-button" onclick="openFullscreen(this.previousElementSibling)">Pantalla Completa</button>
         </div>
-         <div class="game-item">
+        <div class="game-item">
             <h2>SM64</h2>
-            <button onclick="openGame('https://mathadventure1.github.io/sm64/sm64/index.html')">Jugar</button>
-            <button class="fullscreen-button" onclick="openFullscreen('https://mathadventure1.github.io/sm64/sm64/index.html')">Pantalla Completa</button>
+            <iframe class="game-iframe" src="https://mathadventure1.github.io/sm64/sm64/index.html"></iframe>
+            <button class="fullscreen-button" onclick="openFullscreen(this.previousElementSibling)">Pantalla Completa</button>
         </div>
     </div>
 
     <script>
-        function openGame(gameUrl) {
-            window.location.href = gameUrl;
-        }
-
-        function openFullscreen(gameUrl) {
-            let gameWindow = window.open(gameUrl);
-            if (gameWindow.requestFullscreen) {
-                gameWindow.requestFullscreen();
-            } else if (gameWindow.mozRequestFullScreen) { /* Firefox */
-                gameWindow.mozRequestFullScreen();
-            } else if (gameWindow.webkitRequestFullscreen) { /* Chrome, Safari and Opera */
-                gameWindow.webkitRequestFullscreen();
-            } else if (gameWindow.msRequestFullscreen) { /* IE/Edge */
-                gameWindow.msRequestFullscreen();
+        function openFullscreen(element) {
+            if (element.requestFullscreen) {
+                element.requestFullscreen();
+            } else if (element.mozRequestFullScreen) { /* Firefox */
+                element.mozRequestFullScreen();
+            } else if (element.webkitRequestFullscreen) { /* Chrome, Safari and Opera */
+                element.webkitRequestFullscreen();
+            } else if (element.msRequestFullscreen) { /* IE/Edge */
+                element.msRequestFullscreen();
             }
         }
 
