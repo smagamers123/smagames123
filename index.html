@@ -26,50 +26,69 @@
         }
 
         .fullscreen-button {
+            position: absolute;
             background-color: #4CAF50;
             border: none;
             color: white;
             padding: 10px 20px;
             text-align: center;
             text-decoration: none;
-            display: inline-block;
             font-size: 16px;
-            margin-top: 10px;
             cursor: pointer;
+            bottom: 10px;
+            right: 10px;
+        }
+
+        .game-iframe-container {
+            position: relative;
+            width: 100%;
+            height: 400px; /* Ajusta la altura según sea necesario */
         }
 
         .game-iframe {
             width: 100%;
-            height: 400px; /* Ajusta la altura según sea necesario */
+            height: 100%;
             border: none;
         }
     </style>
 </head>
 <body>
-    <img src="smalogo.png" alt="Logo" width="200">
+    <img src="analogo.png" alt="Logo" width="200">
 
     <input type="text" id="searchInput" placeholder="Buscar juego...">
 
     <div class="game-grid">
         <div class="game-item">
             <h2>Friday Night Funkin'</h2>
-            <iframe class="game-iframe" src="https://smagamers123.github.io/friday-night-funkin-psych-engine-movil/"></iframe>
-            <button class="fullscreen-button" onclick="openFullscreen(this.previousElementSibling)">Pantalla Completa</button>
+            <div class="game-iframe-container">
+                <iframe class="game-iframe" src="https://smagamers123.github.io/friday-night-funkin-psych-engine-movil/"></iframe>
+                <button class="fullscreen-button" onclick="openFullscreen(this.parentElement.querySelector('.game-iframe'))">Pantalla Completa</button>
+            </div>
+            <img src="funcion.png" alt="Friday Night Funkin' Image">
         </div>
         <div class="game-item">
             <h2>Cut the Rope</h2>
-            <iframe class="game-iframe" src="https://smagamers123.github.io/Cut-The-Rope/"></iframe>
-            <button class="fullscreen-button" onclick="openFullscreen(this.previousElementSibling)">Pantalla Completa</button>
+            <div class="game-iframe-container">
+                <iframe class="game-iframe" src="https://smagamers123.github.io/Cut-The-Rope/"></iframe>
+                <button class="fullscreen-button" onclick="openFullscreen(this.parentElement.querySelector('.game-iframe'))">Pantalla Completa</button>
+            </div>
+             <img src="criticon.png" alt="Cut the Rope Image">
         </div>
         <div class="game-item">
             <h2>Sonic 3 A.I.R</h2>
-            <iframe class="game-iframe" src="https://projects.sappharad.com/s3air_ios/20240202_beta/sonic3air_web.html"></iframe>
-            <button class="fullscreen-button" onclick="openFullscreen(this.previousElementSibling)">Pantalla Completa</button>
+            <div class="game-iframe-container">
+                <iframe class="game-iframe" src="https://projects.sappharad.com/s3air_ios/20240202_beta/sonic3air_web.html"></iframe>
+                <button class="fullscreen-button" onclick="openFullscreen(this.parentElement.querySelector('.game-iframe'))">Pantalla Completa</button>
+            </div>
+             <img src="sonic3.png" alt="Sonic 3 A.I.R Image">
         </div>
         <div class="game-item">
             <h2>SM64</h2>
-            <iframe class="game-iframe" src="https://mathadventure1.github.io/sm64/sm64/index.html"></iframe>
-            <button class="fullscreen-button" onclick="openFullscreen(this.previousElementSibling)">Pantalla Completa</button>
+            <div class="game-iframe-container">
+                <iframe class="game-iframe" src="https://mathadventure1.github.io/sm64/sm64/index.html"></iframe>
+                <button class="fullscreen-button" onclick="openFullscreen(this.parentElement.querySelector('.game-iframe'))">Pantalla Completa</button>
+            </div>
+            <img src="sm64.png" alt="SM64 Image">
         </div>
     </div>
 
