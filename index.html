@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Colección de Juegos</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            font-family: sans-serif;
+            text-align: center;
+        }
+
+        .game-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .game-item {
+            border: 2px solid white;
+            padding: 20px;
+            cursor: pointer;
+        }
+
+        .fullscreen-button {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <img src="smalogo.png" alt="Logo" width="200">
+
+    <input type="text" id="searchInput" placeholder="Buscar juego...">
+
+    <div class="game-grid">
+        <div class="game-item">
+            <h2>Friday Night Funkin'</h2>
+            <button onclick="openGame('https://smagamers123.github.io/friday-night-funkin-psych-engine-movil/')">Jugar</button>
+            <button class="fullscreen-button" onclick="openFullscreen('https://smagamers123.github.io/friday-night-funkin-psych-engine-movil/')">Pantalla Completa</button>
+        </div>
+        <div class="game-item">
+            <h2>Cut the Rope</h2>
+            <button onclick="openGame('https://smagamers123.github.io/Cut-The-Rope/')">Jugar</button>
+            <button class="fullscreen-button" onclick="openFullscreen('https://smagamers123.github.io/Cut-The-Rope/')">Pantalla Completa</button>
+        </div>
+        <div class="game-item">
+            <h2>Sonic 3 A.I.R</h2>
+            <button onclick="openGame('https://projects.sappharad.com/s3air_ios/20240202_beta/sonic3air_web.html')">Jugar</button>
+            <button class="fullscreen-button" onclick="openFullscreen('https://projects.sappharad.com/s3air_ios/20240202_beta/sonic3air_web.html')">Pantalla Completa</button>
+        </div>
+         <div class="game-item">
+            <h2>SM64</h2>
+            <button onclick="openGame('https://mathadventure1.github.io/sm64/sm64/index.html')">Jugar</button>
+            <button class="fullscreen-button" onclick="openFullscreen('https://mathadventure1.github.io/sm64/sm64/index.html')">Pantalla Completa</button>
+        </div>
+    </div>
+
+    <script>
+        function openGame(gameUrl) {
+            window.location.href = gameUrl;
+        }
+
+        function openFullscreen(gameUrl) {
+            let gameWindow = window.open(gameUrl);
+            if (gameWindow.requestFullscreen) {
+                gameWindow.requestFullscreen();
+            } else if (gameWindow.mozRequestFullScreen) { /* Firefox */
+                gameWindow.mozRequestFullScreen();
+            } else if (gameWindow.webkitRequestFullscreen) { /* Chrome, Safari and Opera */
+                gameWindow.webkitRequestFullscreen();
+            } else if (gameWindow.msRequestFullscreen) { /* IE/Edge */
+                gameWindow.msRequestFullscreen();
+            }
+        }
+
+        const searchInput = document.getElementById('searchInput');
+        searchInput.addEventListener('input', function() {
+            const searchTerm = searchInput.value.toLowerCase();
+            const gameItems = document.querySelectorAll('.game-item');
+
+            gameItems.forEach(item => {
+                const gameName = item.querySelector('h2').textContent.toLowerCase();
+                if (gameName.includes(searchTerm)) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
